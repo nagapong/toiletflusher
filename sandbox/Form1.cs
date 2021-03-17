@@ -13,31 +13,40 @@ namespace sandbox
     public partial class Form1 : Form
     {
         int kaisuu;
-
-
+        int maxrecord;
+        string record;
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            button1.Text = "うんち";
+            label2.Text = "うんち";
             button2.Text = "流す";
             textBox1.Text = kaisuu.ToString();
             kaisuu = 0;
-        }
+            maxrecord = 0;
+            record = "最高記録は0回";
+            label3.Text = record;
+         }
         private void button2_Click(object sender, EventArgs e)
         {
-            if (button1.Text == "流した")
+            if (label2.Text == "流した")
             {
                 MessageBox.Show("水の無駄遣いは控えましょう");
+                if (kaisuu >= maxrecord)
+                {
+                    maxrecord = kaisuu;
+                }
                 kaisuu = 0;
+                record = "最高記録は" + maxrecord.ToString() + "回";
+                label3.Text = record;
                 if (checkBox1.Checked == true)
                 {
                     this.Close();
@@ -46,7 +55,7 @@ namespace sandbox
             else
             {
                 MessageBox.Show("Succsess!");
-                button1.Text = "流した";
+                label2.Text = "流した";
                 kaisuu++;
             }
             textBox1.Text = kaisuu.ToString();
@@ -58,8 +67,8 @@ namespace sandbox
             Random rnd = new System.Random();    // インスタンスを生成
             int intResult = rnd.Next(3);        // 0～9の乱数を取得
             string[] a = new string[3] { "うんち", "おしっこ", "流した" };
-            button1.Text = (a[intResult]).ToString();
-            if (!(button1.Text == "流した"))
+            label2.Text = (a[intResult]).ToString();
+            if (!(label2.Text == "流した"))
             {
                 timer1.Stop();
             }
