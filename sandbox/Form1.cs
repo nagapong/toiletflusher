@@ -37,7 +37,7 @@ namespace sandbox
          }
         private void button2_Click(object sender, EventArgs e)
         {
-            if (label2.Text == "流した")
+            if (label2.Text == "きれい")
             {
                 MessageBox.Show("水の無駄遣いは控えましょう");
                 if (kaisuu >= maxrecord)
@@ -54,8 +54,7 @@ namespace sandbox
             }
             else
             {
-                MessageBox.Show("Succsess!");
-                label2.Text = "流した";
+                label2.Text = "Succsess!";
                 kaisuu++;
             }
             textBox1.Text = kaisuu.ToString();
@@ -65,10 +64,10 @@ namespace sandbox
         private void timer1_Tick(object sender, EventArgs e)
         {
             Random rnd = new System.Random();    // インスタンスを生成
-            int intResult = rnd.Next(3);        // 0～9の乱数を取得
-            string[] a = new string[3] { "うんち", "おしっこ", "流した" };
+            int intResult = rnd.Next(7);        // 0～9の乱数を取得
+            string[] a = new string[7] { "うんち", "おしっこ", "きれい", "きれい", "きれい", "おしっこ", "きれい" };
             label2.Text = (a[intResult]).ToString();
-            if (!(label2.Text == "流した"))
+            if (!(label2.Text == "きれい"))
             {
                 timer1.Stop();
             }
