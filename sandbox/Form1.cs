@@ -40,13 +40,7 @@ namespace sandbox
             if (label2.Text == "きれい")
             {
                 MessageBox.Show("水の無駄遣いは控えましょう");
-                if (kaisuu >= maxrecord)
-                {
-                    maxrecord = kaisuu;
-                }
                 kaisuu = 0;
-                record = "最高記録は" + maxrecord.ToString() + "回";
-                label3.Text = record;
                 if (checkBox1.Checked == true)
                 {
                     this.Close();
@@ -58,6 +52,14 @@ namespace sandbox
                 kaisuu++;
             }
             textBox1.Text = kaisuu.ToString();
+            if (kaisuu >= maxrecord)
+            {
+                maxrecord = kaisuu;
+            }
+            record = "最高記録は" + maxrecord.ToString() + "回";
+            label3.Text = record;
+
+
             timer1.Start();
         }
 
